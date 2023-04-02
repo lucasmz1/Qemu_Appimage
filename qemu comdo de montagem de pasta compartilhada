@@ -1,0 +1,13 @@
+Este comando compartilha uma pasta no qemu comando para ser rodado no host
+
+QEMU-x86_64.AppImage qemu-system-x86_64 -M q35 -enable-kvm -cpu host -smp cores=2 -m 4G -name 'Xubuntu' -boot c -hda ~/Downloads/Xubuntu.qcow2 -virtfs local,path=/home/lucas/Modelos/,mount_tag=host0,security_model=mapped,id=host0
+
+comando para ser rodado no guest
+
+mount -t 9p -o trans=virtio,version=9p2000.L host0 /home/lucas/Modelos/
+
+
+Fonte:
+https://askubuntu.com/questions/290668/how-to-share-a-folder-between-kvm-host-and-guest-using-virt-manager
+
+https://askubuntu.com/questions/884534/how-to-run-ubuntu-desktop-on-qemu/1046792#1046792

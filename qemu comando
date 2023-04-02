@@ -1,0 +1,36 @@
+cria um hd de 30gb
+
+./QEMU-x86_64.AppImage qemu-img create -f qcow2 windows10.qcow2 30G
+
+boota uma iso no hd
+
+./QEMU-x86_64.AppImage qemu-system-x86_64 -hda ~/Downloads/fedora.qcow2 -m 4096m -cdrom ~/Downloads/Fedora-Xfce-Live-x86_64-37-1.7.iso -boot c -machine ubuntu,accel=kvm
+
+
+boota o sistema instalado no hd
+
+./QEMU-x86_64.AppImage qemu-system-x86_64 -enable-kvm -m 4096m -name 'fedora' -boot d -hda fedora.qcow2
+
+./QEMU-x86_64.AppImage qemu-system-x86_64 -enable-kvm -cpu host -smp cores=2 -m 4096m -name 'Android' -boot d -hda ~/Documentos/Ghostbsd.qcow2
+
+sudo QEMU-x86_64.AppImage qemu-system-x86_64 -enable-kvm -cpu host -smp cores=2 -m 4096m -name 'Manjaro' -boot d -hda ~/Documentos/Manjaro.qcow2 -cdrom ~/Documentos/manjaro-gnome-21.3.7-220816-linux515.iso
+
+
+sudo QEMU-x86_64.AppImage qemu-system-x86_64 -enable-kvm -cpu host -smp cores=2 -m 4096m -soundhw hda -name 'Manjaro' -boot d -hda ~/Documentos/Manjaro.qcow2
+
+
+Este comando compartilha uma pasta no qemu comando para ser rodado no host
+
+QEMU-x86_64.AppImage qemu-system-x86_64 -M q35 -vga virtio -enable-kvm -cpu host -smp cores=2 -m 4G -name 'Xubuntu' -boot c -hda ~/Downloads/Xubuntu.qcow2 -virtfs local,path=/home/lucas/Modelos/,mount_tag=host0,security_model=mapped,id=host0
+
+comando para ser rodado no guest = máquina virtual
+
+mount -t 9p -o trans=virtio,version=9p2000.L host0 /home/lucas/Modelos/
+
+
+Fonte:
+https://askubuntu.com/questions/290668/how-to-share-a-folder-between-kvm-host-and-guest-using-virt-manager
+
+https://askubuntu.com/questions/884534/how-to-run-ubuntu-desktop-on-qemu/1046792#1046792
+
+se adicionar qemu -vga std ou -vga virtio no inicio da linha isso habilta altas resoluções.
