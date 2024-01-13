@@ -43,6 +43,7 @@ jobs:
           ./configure --prefix=${GITHUB_WORKSPACE}/lucas/
           make
           make install
+          cd ..
           cp qemu.desktop qemu_logo_no_text.svg AppRun libunionpreload.so lucas/
 
       # Runs a set of commands using the runners shell
