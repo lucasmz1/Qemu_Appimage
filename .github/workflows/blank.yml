@@ -40,7 +40,7 @@ jobs:
           cd qemu
           git submodule init
           git submodule update --recursive
-          ./configure --prefix=${GITHUB_WORKSPACE}/lucas/
+          ./configure --prefix=${GITHUB_WORKSPACE}/lucas/usr/
           make
           make install
           cd ..
