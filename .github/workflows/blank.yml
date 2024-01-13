@@ -47,7 +47,7 @@ jobs:
           cd qemu
           git submodule init
           git submodule update --recursive
-          ./configure --enbale-sdl --enable-gtk --enable-opengl --prefix=${GITHUB_WORKSPACE}/lucas/usr/
+          ./configure --enable-sdl --enable-gtk --enable-opengl --prefix=${GITHUB_WORKSPACE}/lucas/usr/
           make
           make install
           cd ..
