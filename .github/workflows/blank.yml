@@ -34,7 +34,7 @@ jobs:
         run: |
           sudo apt install python3-venv git ninja-build pkg-config libglib2.0-dev flex bison git libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev ninja-build
           sudo apt-get install libaio-dev libbluetooth-dev libcapstone-dev libbrlapi-dev libbz2-dev
-          sudo apt-get install libcap-ng-dev libcurl4-gnutls-dev libgtk-3-dev
+          sudo apt-get install libcap-ng-dev libcurl4-gnutls-dev libgtk-3-dev liburing2 libnfs13
           sudo apt-get install libibverbs-dev libjpeg8-dev libncurses5-dev libnuma-dev
           sudo apt-get install librbd-dev librdmacm-dev
           sudo apt-get install libsasl2-dev libsdl2-dev libseccomp-dev libsnappy-dev libssh-dev
