@@ -51,6 +51,7 @@ jobs:
         run: |
           
           ./linuxdeploy --appdir lucas/
+          cp qemu.desktop lucas/
           ARCH=x86_64 ./appimagetool -n lucas/
 
       - name: release
