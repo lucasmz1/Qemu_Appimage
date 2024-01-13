@@ -43,11 +43,13 @@ jobs:
           wget -q "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage" -O linuxdeploy ; chmod a+x linuxdeploy
           wget -q "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage" -O appimagetool ; chmod a+x appimagetool
           mkdir -p lucas/usr/lib/
+          mkdir -p lucas/usr/share/
+          cp -r /usr/share/mime/ lucas/usr/share/
           git clone https://gitlab.com/qemu-project/qemu.git
           cd qemu
           git submodule init
           git submodule update --recursive
-          ./configure --enable-sdl --enable-gtk --enable-opengl --prefix=${GITHUB_WORKSPACE}/lucas/usr/
+          ./configure --enable-sdl --enable-gtk --enable-opengl --enable-kvm --enable-gnutls --enable-l2tpv3 --enable-libssh --enable-libudev --enable-usb --enable-libudev --enable-netmap --enable-nettle --enable-vmnet --enable-vde --enable-slirp-smbd --enable-slirp --enable-af-xdp --audio-drv-list=default --prefix=${GITHUB_WORKSPACE}/lucas/usr/
           make
           make install
           cd ..
