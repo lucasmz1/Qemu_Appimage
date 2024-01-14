@@ -52,9 +52,9 @@ jobs:
           cd qemu
           git submodule init
           git submodule update --recursive
-          ./configure --cc=clang --ninja=NINJA --enable-sdl --enable-gtk --enable-opengl --enable-kvm --enable-gnutls --enable-libssh --enable-libusb --enable-libudev --enable-nettle --enable-alsa --enable-pa --enable-slirp --enable-slirp-smbd --prefix=${GITHUB_WORKSPACE}/lucas/usr/
-          ninja
-          ninja install
+          ./configure --cc=clang --enable-sdl --enable-gtk --enable-opengl --enable-kvm --enable-gnutls --enable-libssh --enable-libusb --enable-libudev --enable-nettle --enable-alsa --enable-pa --enable-slirp --enable-slirp-smbd --prefix=${GITHUB_WORKSPACE}/lucas/usr/
+          make
+          make install
           cd ..
           cp qemu.desktop qemu_logo_no_text.svg AppRun libunionpreload.so lucas/
 
