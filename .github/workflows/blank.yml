@@ -39,8 +39,8 @@ jobs:
           sudo apt-get install librbd-dev librdmacm-dev
           sudo apt-get install libsasl2-dev libsdl2-dev libseccomp-dev libsnappy-dev libssh-dev
           sudo apt-get install libvde-dev libvdeplug-dev libvte-2.91-dev libxen-dev liblzo2-dev
-          sudo apt-get install valgrind xfslibs-dev pip3
-          sudo pip3 install meson
+          sudo apt-get install valgrind xfslibs-dev pip
+          sudo pip install meson
           sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa -y
           sudo apt update
           sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
