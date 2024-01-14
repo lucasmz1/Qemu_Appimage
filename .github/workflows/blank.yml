@@ -43,17 +43,9 @@ jobs:
           sudo python3.8 -m pip install --upgrade pip
           sudo pip install meson
           sudo pip install sphinx-rtd-theme
-          sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa -y
-          sudo apt update
-          sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-          sudo apt update
-          sudo apt install gcc-13 g++-13
-          version=$(apt-cache pkgnames | sed -nr 's/^gcc-(([0-9]+\.?)+)$/\1/p' \
-                             | sort -n | tail -n1)
-          echo "The latest available GCC version: $version"
-          sudo apt-get install gcc-$version g++-$version
-          sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-$version 60 \
-          --slave   /usr/bin/g++ g++ /usr/bin/g++-$version
+          wget https://apt.llvm.org/llvm.sh
+          chmod +x llvm.sh
+          sudo ./llvm.sh 16
           wget -q "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage" -O linuxdeploy ; chmod a+x linuxdeploy
           wget -q "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage" -O appimagetool ; chmod a+x appimagetool
           mkdir -p lucas/usr/lib/
@@ -63,7 +55,7 @@ jobs:
           cd qemu
           git submodule init
           git submodule update --recursive
-          ./configure --cc=CC --ninja=NINJA --enable-sdl --enable-gtk --enable-opengl --enable-kvm --enable-gnutls --enable-libssh --enable-libusb --enable-libudev --enable-nettle --enable-alsa --enable-pa --enable-slirp --enable-slirp-smbd --prefix=${GITHUB_WORKSPACE}/lucas/usr/
+          ./configure --cc=clang --ninja=NINJA --enable-sdl --enable-gtk --enable-opengl --enable-kvm --enable-gnutls --enable-libssh --enable-libusb --enable-libudev --enable-nettle --enable-alsa --enable-pa --enable-slirp --enable-slirp-smbd --prefix=${GITHUB_WORKSPACE}/lucas/usr/
           ninja
           ninja install
           cd ..
