@@ -39,7 +39,8 @@ jobs:
           sudo apt-get install librbd-dev librdmacm-dev
           sudo apt-get install libsasl2-dev libsdl2-dev libseccomp-dev libsnappy-dev libssh-dev
           sudo apt-get install libvde-dev libvdeplug-dev libvte-2.91-dev libxen-dev liblzo2-dev
-          sudo apt-get install valgrind xfslibs-dev
+          sudo apt-get install valgrind xfslibs-dev pip3
+          sudo pip3 install meson
           sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa -y
           sudo apt update
           sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
@@ -60,9 +61,9 @@ jobs:
           cd qemu
           git submodule init
           git submodule update --recursive
-          ./configure --enable-sdl --enable-gtk --enable-opengl --enable-kvm --enable-gnutls --enable-libssh --enable-libusb --enable-libudev --enable-nettle --enable-alsa --enable-pa --enable-slirp --enable-slirp-smbd --prefix=${GITHUB_WORKSPACE}/lucas/usr/
-          make
-          make install
+          ./configure --cc=CC --ninja=NINJA --enable-sdl --enable-gtk --enable-opengl --enable-kvm --enable-gnutls --enable-libssh --enable-libusb --enable-libudev --enable-nettle --enable-alsa --enable-pa --enable-slirp --enable-slirp-smbd --prefix=${GITHUB_WORKSPACE}/lucas/usr/
+          ninja
+          ninja install
           cd ..
           cp qemu.desktop qemu_logo_no_text.svg AppRun libunionpreload.so lucas/
 
