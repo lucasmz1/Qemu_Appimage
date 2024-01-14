@@ -43,8 +43,6 @@ jobs:
           sudo apt-get install libsasl2-dev libsdl2-dev libseccomp-dev libsnappy-dev libssh-dev
           sudo apt-get install libvde-dev libvdeplug-dev libvte-2.91-dev libxen-dev liblzo2-dev
           sudo apt-get install valgrind xfslibs-dev pip python3-sphinx
-          sudo python3.8 -m pip install --upgrade pip
-          sudo pip install meson
           sudo pip install sphinx-rtd-theme
           wget https://apt.llvm.org/llvm.sh
           chmod +x llvm.sh
