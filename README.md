@@ -21,4 +21,7 @@ this other example boot the iso file
 attention if you're using the version stable or the one which was build from the source you must use this command
 ./QEMU-x86_64.AppImage qemu-system-x86_64 -enable-kvm -M q35 -vga virtio -display gtk,gl=on -cpu host -smp cores=2 -m 1G -name 'teste' -boot d -hda ~/Downloads/organizar/windows10.qcow2 -cdrom ~/Documentos/AppImage/TinyCorePure64-14.0.iso
 
-the option -vga virtio -display gtk,gl=on will enable the gtk interface instead of vnc or if you're didn't like gtk window you can change to sdl. the network is working normaly. but the output audio is not yet, I'll fix it in the future.
+the option -vga virtio -display gtk,gl=on will enable the gtk interface instead of vnc or if you're didn't like gtk window you can change to sdl. the network is working normaly.
+
+the audio is working use this command to get audio outoput in HDMI monitor or TV
+./QEMU-git.AppImage qemu-system-x86_64 -enable-kvm -M q35 -vga virtio -display gtk,gl=on -cpu host -smp cores=2 -m 1G -name 'teste' -boot d -hda ~/Downloads/organizar/windows10.qcow2 -cdrom ~/Downloads/organizar/bodhi.iso -device ich9-intel-hda,addr=1f.1 -audiodev pa,id=snd0 -device hda-output,audiodev=snd0
