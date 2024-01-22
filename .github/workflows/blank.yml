@@ -39,7 +39,7 @@ jobs:
           sudo apt-get install librbd-dev librdmacm-dev
           sudo apt-get install libsasl2-dev libsdl2-dev libseccomp-dev libsnappy-dev libssh-dev
           sudo apt-get install libvde-dev libvdeplug-dev libvte-2.91-dev libxen-dev liblzo2-dev
-          sudo apt-get install valgrind xfslibs-dev
+          sudo apt-get install valgrind xfslibs-dev libpixman-1-0 libpixman-1-dev
           wget -q "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage" -O linuxdeploy ; chmod a+x linuxdeploy
           wget -q "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage" -O appimagetool ; chmod a+x appimagetool
           mkdir -p lucas/usr/lib/
