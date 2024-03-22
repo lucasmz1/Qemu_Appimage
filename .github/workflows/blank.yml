@@ -50,7 +50,7 @@ jobs:
           cd qemu
           git submodule init
           git submodule update --recursive
-          ./configure --disable-docs --with-sdlabi=2.0 --enable-modules --enable-system --enable-virglrenderer --enable-guest-agent --enable-gio --enable-sdl --enable-gtk --enable-gtk-clipboard --enable-spice --enable-spice-protocol --enable-pixman --enable-user --enable-opengl --enable-kvm --enable-gnutls --enable-libssh --enable-libusb --enable-libudev --enable-nettle --enable-alsa --enable-pa --enable-slirp --enable-slirp-smbd --prefix=${GITHUB_WORKSPACE}/lucas/usr/
+          ./configure --disable-docs --enable-modules --enable-system --enable-virglrenderer --enable-guest-agent --enable-gio --enable-sdl --enable-gtk --enable-gtk-clipboard --enable-spice --enable-spice-protocol --enable-pixman --enable-user --enable-opengl --enable-kvm --enable-gnutls --enable-libssh --enable-libusb --enable-libudev --enable-nettle --enable-alsa --enable-pa --enable-slirp --enable-slirp-smbd --prefix=${GITHUB_WORKSPACE}/lucas/usr/
           make
           make install
           cd ..
