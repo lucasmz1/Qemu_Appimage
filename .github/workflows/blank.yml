@@ -32,6 +32,7 @@ jobs:
 
       - name: Prerequisites
         run: |
+          sudo apt-get update && sudo apt-get upgrade -y
           wget -c "https://github.com/ninja-build/ninja/releases/download/v1.12.0/ninja-linux.zip" && unzip ninja-linux.zip && sudo mv ninja /usr/bin/
           wget -c "https://github.com/mesonbuild/meson/releases/download/1.4.0/meson-1.4.0.tar.gz" && tar -xf meson-1.4.0.tar.gz && cd meson-1.4.0/ && sudo ln -rs meson.py /usr/bin/meson
           sudo apt-get install libxml2-utils xsltproc libglib2.0-dev gnutls-bin libgnutls28-dev libxml2-dev pip docutils-common gettext
