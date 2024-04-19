@@ -76,7 +76,6 @@ jobs:
         run: |
           
           find -name 'linuxdeploy**' -type f -exec {} --appdir ${GITHUB_WORKSPACE}/lucas/ \;
-          find -iname 'qemu.desktop' | xargs -i -t -exec cp {} ${GITHUB_WORKSPACE}/lucas/
           ARCH=x86_64 find -name 'appimagetool**' -type f -exec {} ${GITHUB_WORKSPACE}/lucas/ \;
 
       - name: release
