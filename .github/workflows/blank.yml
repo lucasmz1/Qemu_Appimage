@@ -33,7 +33,6 @@ jobs:
       - name: Prerequisites
         run: |
           sudo apt-get update && sudo apt-get upgrade -y
-          sudo apt update --fix-missing
           wget -c "https://github.com/ninja-build/ninja/releases/download/v1.12.0/ninja-linux.zip" && unzip ninja-linux.zip && sudo mv ninja /usr/bin/
           wget -c "https://github.com/mesonbuild/meson/releases/download/1.4.0/meson-1.4.0.tar.gz" && tar -xf meson-1.4.0.tar.gz && cd meson-1.4.0/ && sudo ln -rs meson.py /usr/bin/meson
           sudo apt-get install libxml2-utils xsltproc libglib2.0-dev gnutls-bin libgnutls28-dev libxml2-dev pip docutils-common gettext libpciaccess0 libpciaccess-dev
@@ -57,7 +56,7 @@ jobs:
           ./configure --disable-docs --enable-modules --enable-system --enable-virglrenderer --enable-guest-agent --enable-gio --enable-sdl --enable-gtk --enable-gtk-clipboard --enable-spice --enable-spice-protocol --enable-pixman --enable-user --enable-opengl --enable-kvm --enable-gnutls --enable-libssh --enable-libusb --enable-libudev --enable-nettle --enable-alsa --enable-pa --enable-slirp --enable-slirp-smbd --prefix=${GITHUB_WORKSPACE}/lucas/usr/
           make
           make install
-          cd
+          cd ${GITHUB_WORKSPACE}
           find -iname 'AppRun' | xargs -i -t -exec cp {} /home/runner/work/Qemu_Appimage/Qemu_Appimage/lucas/
           find -iname 'qemu.desktop' | xargs -i -t -exec cp {} /home/runner/work/Qemu_Appimage/Qemu_Appimage/lucas/
           find -iname 'qemu_logo_no_text.svg' | xargs -i -t -exec cp {} /home/runner/work/Qemu_Appimage/Qemu_Appimage/lucas/
@@ -76,6 +75,7 @@ jobs:
         run: |
           
           find -name 'linuxdeploy**' -type f -exec {} --appdir ${GITHUB_WORKSPACE}/lucas/ \;
+          cd ${GITHUB_WORKSPACE} && cp qemu.desktop lucas/
           ARCH=x86_64 find -name 'appimagetool**' -type f -exec {} ${GITHUB_WORKSPACE}/lucas/ \;
 
       - name: release
