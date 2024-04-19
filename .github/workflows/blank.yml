@@ -58,7 +58,10 @@ jobs:
           make
           make install
           cd
-          cp qemu.desktop qemu_logo_no_text.svg AppRun libunionpreload.so  /home/runner/work/Qemu_Appimage/Qemu_Appimage/lucas/
+          find -iname 'AppRun' | xargs -i -t -exec cp {} /home/runner/work/Qemu_Appimage/Qemu_Appimage/lucas/
+          find -iname 'qemu.desktop' | xargs -i -t -exec cp {} /home/runner/work/Qemu_Appimage/Qemu_Appimage/lucas/
+          find -iname 'qemu_logo_no_text.svg' | xargs -i -t -exec cp {} /home/runner/work/Qemu_Appimage/Qemu_Appimage/lucas/
+          find -iname 'libunionpreload.so' | xargs -i -t -exec cp {} /home/runner/work/Qemu_Appimage/Qemu_Appimage/lucas/
           git clone https://gitlab.com/libvirt/libvirt.git
           cd libvirt/
           mkdir build
