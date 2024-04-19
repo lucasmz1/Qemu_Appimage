@@ -57,7 +57,7 @@ jobs:
           ./configure --disable-docs --enable-modules --enable-system --enable-virglrenderer --enable-guest-agent --enable-gio --enable-sdl --enable-gtk --enable-gtk-clipboard --enable-spice --enable-spice-protocol --enable-pixman --enable-user --enable-opengl --enable-kvm --enable-gnutls --enable-libssh --enable-libusb --enable-libudev --enable-nettle --enable-alsa --enable-pa --enable-slirp --enable-slirp-smbd --prefix=${GITHUB_WORKSPACE}/lucas/usr/
           make
           make install
-          cd ..
+          cd
           cp qemu.desktop qemu_logo_no_text.svg AppRun libunionpreload.so lucas/
           git clone https://gitlab.com/libvirt/libvirt.git
           cd libvirt/
