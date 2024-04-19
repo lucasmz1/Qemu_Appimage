@@ -69,14 +69,14 @@ jobs:
           meson .. && ninja
           export DESTDIR=${GITHUB_WORKSPACE}/lucas/
           ninja install
-          cd
+          cd ${GITHUB_WORKSPACE}
 
       # Runs a set of commands using the runners shell
       - name: Build appimage
         run: |
           
           ./linuxdeploy --appdir lucas/
-          cp qemu.desktop lucas/
+          find -iname 'qemu.desktop' | xargs -i -t -exec cp {} /home/runner/work/Qemu_Appimage/Qemu_Appimage/lucas/
           ARCH=x86_64 ./appimagetool -n lucas/
 
       - name: release
