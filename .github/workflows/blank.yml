@@ -63,9 +63,9 @@ jobs:
           find -iname 'libunionpreload.so' | xargs -i -t -exec cp {} /home/runner/work/Qemu_Appimage/Qemu_Appimage/lucas/
           git clone https://gitlab.com/libvirt/libvirt.git
           cd libvirt/
-          mkdir build
+          meson setup build -Dsystem=true -Ddriver_qemu=enabled
           cd build/
-          meson .. setup -Dsystem=true -Ddriver_qemu=enabled && ninja
+          ninja
           export DESTDIR=${GITHUB_WORKSPACE}/lucas/
           ninja install
           cd ${GITHUB_WORKSPACE}
