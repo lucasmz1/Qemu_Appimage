@@ -63,6 +63,7 @@ jobs:
           make
           make install
           cd ${GITHUB_WORKSPACE}
+          find lucas/ -depth -iname 'libglib-2.0.so.0' -type f -delete
           find -iname 'AppRun' | xargs -i -t -exec cp {} /home/runner/work/Qemu_Appimage/Qemu_Appimage/lucas/
           find -iname 'qemu.desktop' | xargs -i -t -exec cp {} /home/runner/work/Qemu_Appimage/Qemu_Appimage/lucas/
           find -iname 'qemu_logo_no_text.svg' | xargs -i -t -exec cp {} /home/runner/work/Qemu_Appimage/Qemu_Appimage/lucas/
