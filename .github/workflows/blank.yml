@@ -45,6 +45,7 @@ jobs:
           sudo apt-get install valgrind xfslibs-dev libpixman-1-0 libpixman-1-dev
           wget -q "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage" -O linuxdeploy ; chmod a+x linuxdeploy
           wget -q "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage" -O appimagetool ; chmod a+x appimagetool
+          sudo pip3 install meson
           wget -c -q "https://download.gnome.org/sources/glib/2.80/glib-2.80.2.tar.xz"
           tar -xf glib-2.80.2.tar.xz
           cd glib-2.80.2
