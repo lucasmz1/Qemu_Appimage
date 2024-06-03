@@ -47,7 +47,7 @@ jobs:
           wget -q "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage" -O appimagetool ; chmod a+x appimagetool
           wget -c -q "https://download.gnome.org/sources/glib/2.80/glib-2.80.2.tar.xz"
           tar -xf glib-*.tar.xz
-          cd cd glib-*
+          cd glib-*
           meson setup _build
           meson compile -C _build
           sudo meson install -C _build
