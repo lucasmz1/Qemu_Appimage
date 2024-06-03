@@ -32,6 +32,7 @@ jobs:
 
       - name: Prerequisites
         run: |
+          echo $PATH
           sudo apt-get update && sudo apt-get upgrade -y
           sudo apt-get install ninja-build libxml2-utils xsltproc libglib2.0-dev gnutls-bin libgnutls28-dev libxml2-dev pip docutils-common gettext libpciaccess0 libpciaccess-dev libyajl2 libyajl-dev
           sudo apt-get install python3-venv git pkg-config libglib2.0-dev flex bison git libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev libspice-protocol-dev
