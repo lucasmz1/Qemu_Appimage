@@ -1,4 +1,10 @@
 # Qemu_Appimage
+########################################################################
+Thank you for sharing this project across the internet!
+If you like it don't forget to give an star.
+By the way this is an unofficial project.
+########################################################################
+
 
 This is a Prove of the concept that is possible to run a virtual machine from an Appimage.
 What is the goal?
