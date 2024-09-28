@@ -114,7 +114,31 @@ jobs:
           cd qemu
           git submodule init
           git submodule update --recursive
-          ./configure --disable-docs --enable-modules --enable-system --enable-virglrenderer --enable-guest-agent --enable-gio --enable-sdl --enable-gtk --enable-gtk-clipboard --enable-spice --enable-spice-protocol --enable-pixman --enable-user --enable-opengl --enable-kvm --enable-gnutls --enable-libssh --enable-libusb --enable-libudev --enable-nettle --enable-alsa --enable-pa --enable-slirp --enable-slirp-smbd --prefix=${GITHUB_WORKSPACE}/lucas/usr/
+          ./configure --disable-docs \
+           --enable-alsa \
+           --enable-gio \
+           --enable-gnutls \
+           --enable-gtk \
+           --enable-gtk-clipboard \
+           --enable-guest-agent \
+           --enable-kvm \
+           --enable-libssh \
+           --enable-libudev \
+           --enable-libusb \
+           --enable-modules \
+           --enable-nettle \
+           --enable-opengl \
+           --enable-pa \
+           --enable-pixman \
+           --enable-sdl \
+           --enable-slirp \
+           --enable-slirp-smbd \
+           --enable-spice \
+           --enable-spice-protocol \
+           --enable-system \
+           --enable-user \
+           --enable-virglrenderer \
+           --prefix=${GITHUB_WORKSPACE}/lucas/usr/
           make
           make install
           cd ${GITHUB_WORKSPACE}
