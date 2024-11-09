@@ -46,3 +46,5 @@ if you had doubts about the use you can find me in Telegram: @zainotel.
 <br> sudo /home/lucas/Downloads/QEMU-x86_64.AppImage qemu-nbd --disconnect /dev/nbd0 <br/>
 <br> now remove de nbd <br/>
 <br> sudo rmmod nbd <br/>
+<h1>Telegram Group<h1/>
+<h1>https://t.me/appimagelucasmz1<h1/>
