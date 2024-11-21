@@ -34,7 +34,8 @@ jobs:
         run: |
           echo $PATH
           sudo apt-get update && sudo apt-get upgrade -y
-          sudo apt-get install bison \
+          sudo apt-get install desktop-file-utils \
+           bison \
            docutils-common \
            flex \
            gettext \
@@ -99,7 +100,7 @@ jobs:
            xsltproc \
            zlib1g-dev
           wget -q "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage" -O linuxdeploy ; chmod a+x linuxdeploy
-          wget -q "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage" -O appimagetool ; chmod a+x appimagetool
+          wget -q "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O appimagetool ; chmod a+x appimagetool
           sudo pip3 install meson
           wget -c -q "https://download.gnome.org/sources/glib/2.80/glib-2.80.2.tar.xz"
           tar -xf glib-2.80.2.tar.xz
@@ -153,11 +154,7 @@ jobs:
           
           find -name 'linuxdeploy**' -type f -exec {} --appdir ${GITHUB_WORKSPACE}/lucas/ \;
           cd ${GITHUB_WORKSPACE} && cp qemu.desktop lucas/ && find lucas/ -depth -iname 'libglib-2.0.so.0' -type f -delete
-          cd ${GITHUB_WORKSPACE}/lucas/
-          VERSION=$(./AppRun --version | awk '{print $2}')
-          cd ..
-          echo $VERSION
-          ARCH=x86_64 VERSION=$VERSION find -name 'appimagetool**' -type f -exec {} ${GITHUB_WORKSPACE}/lucas/ \;
+          ARCH=x86_64 VERSION=git find -name 'appimagetool**' -type f -exec {} ${GITHUB_WORKSPACE}/lucas/ \;
 
       - name: release
         uses: "marvinpinto/action-automatic-releases@6273874b61ebc8c71f1a61b2d98e234cf389b303"
