@@ -8,7 +8,7 @@
 
 <br> This is a Prove of the concept that is possible to run a virtual machine from an Appimage. <br/>
 <br> What is the goal? <br/>
-<br> To run QEMU a virtual machine emulator from this contrainer. <br/>
+<br> To run QEMU a virtual machine emulator from this container. <br/>
 
 which architectures are possible to run using this appimage? almost all of then which is supported by QEMU.
 In this repository you may find a text file with examples for using This QEMU AppImage, of course it's all in portuguese, but no need worries... those commands are the same for every single use of QEMU.
