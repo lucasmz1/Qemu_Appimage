@@ -9,5 +9,5 @@ cp /etc/resolv.conf -t ${GITHUB_WORKSPACE}/arch/root.x86_64/etc/ && cp ${GITHUB_
 cd ${GITHUB_WORKSPACE}
 sudo chroot ./arch/root.x86_64/ /bin/bash -c "pacman -Syyu --noconfirm && pacman -S qemu-full jack2 --noconfirm && pacman -Scc --noconfirm"
 cp ${GITHUB_WORKSPACE}/files/AppRun ${GITHUB_WORKSPACE}/arch/ && cp ${GITHUB_WORKSPACE}/files/qemu.svg -t ${GITHUB_WORKSPACE}/arch/ && cp ${GITHUB_WORKSPACE}/files/qemu.desktop -t ${GITHUB_WORKSPACE}/arch/
-mv ${GITHUB_WORKSPACE}/arch/root.x86_64/ ./root/
+mv ${GITHUB_WORKSPACE}/arch/root.x86_64/  ${GITHUB_WORKSPACE}/arch/root/
 ARCH=x86_64 ./appimagetool -n ./arch/
