@@ -33,7 +33,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Build appimage
         run: |
-          
+          chmod a+x qemu-universal.sh
           ./qemu-universal.sh
 
       - name: release
