@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo apt-get install desktop-file-utils debootstrap schroot perl git wget xz-utils bubblewrap autoconf
+sudo apt-get install desktop-file-utils debootstrap schroot perl git wget xz-utils bubblewrap autoconf coreutils
 wget -q "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O appimagetool && chmod a+x appimagetool
 wget -q -c "https://archive.archlinux.org/iso/2025.01.01/archlinux-bootstrap-x86_64.tar.zst"
 mkdir arch
