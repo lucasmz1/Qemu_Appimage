@@ -46,7 +46,7 @@ if you had doubts about the use you can find me in Telegram: @zainotel.
 <br> `sudo /home/lucas/Downloads/QEMU-x86_64.AppImage qemu-nbd --disconnect /dev/nbd0` <br/>
 <br> now remove de nbd <br/>
 <br> `sudo rmmod nbd` <br/>
-<br> <h3> How to mount a shared folder between the host and guest <h3/> <br/>
+<br> <h3> How to mount a shared folder between the host and guest </h3> <br/>
 <br> With this command below you will able to mount a shared folder betwen the vm (guest OS) and your linux system (host OS) <br/>
 <br> `QEMU-x86_64.AppImage qemu-system-x86_64 -M q35 -vga virtio -enable-kvm -cpu host -smp cores=2 -m 4G -name 'VM' -boot c -hda ~/Downloads/Xubuntu.qcow2 -virtfs local,path=/some/path/in/my/machine/hostOS/,mount_tag=host0,security_model=mapped,id=host0` <br/>
 <br> the command below must be typed into the the gest os on the terminal <br/>
